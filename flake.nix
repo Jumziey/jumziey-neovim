@@ -5,7 +5,7 @@
       url = "github:NixOS/nixpkgs";
     };
     neovim = {
-      url = "github:neovim/neovim?dir=contrib";
+      url = "github:neovim/neovim/release-0.9?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     telescope-recent-files-src = {
