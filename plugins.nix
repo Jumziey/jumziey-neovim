@@ -7,4 +7,50 @@ with pkgs.vimPlugins; [
   ultisnips
   fugitive
   fzf-vim
+  (nvim-treesitter.withPlugins (
+    plugins: with plugins; [
+      angular
+      jsonnet
+      bash
+      c
+      c_sharp
+      cmake
+      cpp
+      css
+      diff
+      dockerfile
+      dot
+      git_rebase
+      gitattributes
+      gitcommit
+      gitignore
+      go
+      gomod
+      gosum
+      gowork
+      java
+      javascript
+      typescript
+      jq
+      jsdoc
+      http
+      json
+      make
+      markdown
+      markdown_inline
+      proto
+      python
+      regex
+      sql
+      terraform
+      yaml
+      toml
+      vim
+      nix
+      python
+    ]
+  ))
+  nvim-treesitter-context
+  nvim-treesitter-refactor
+  nvim-treesitter-textobjects
 ]
