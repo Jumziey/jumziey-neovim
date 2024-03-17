@@ -5,4 +5,5 @@ with pkgs.vimPlugins; [
   material-vim
   nvim-lspconfig
   ultisnips
+  fugitive
 ]
