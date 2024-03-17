@@ -6,4 +6,5 @@ with pkgs.vimPlugins; [
   nvim-lspconfig
   ultisnips
   fugitive
+  fzf-vim
 ]
