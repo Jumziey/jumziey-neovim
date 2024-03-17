@@ -12,6 +12,7 @@
       url = "github:smartpde/telescope-recent-files";
       flake = false;
     };
+
     flake-utils = {
       url = "github:numtide/flake-utils";
     };
@@ -25,6 +26,9 @@
           vimPlugins = final.vimPlugins // {
             telescope-recent-files = import ./packages/vimPlugins/telescopeRecentFiles.nix {
               src = telescope-recent-files-src;
+              pkgs = prev;
+            };
+            material-vim = import ./packages/vimPlugins/material-vim.nix {
               pkgs = prev;
             };
           };
