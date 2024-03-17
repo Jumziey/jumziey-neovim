@@ -46,6 +46,7 @@ with pkgs.vimPlugins; [
       vim
       nix
       python
+      helm
     ]
   ))
   nvim-treesitter-context
@@ -54,4 +55,6 @@ with pkgs.vimPlugins; [
   custom-hop-vim
   plantuml-previewer-vim
   vimwiki
+  vim-airline
+  vim-airline-themes
 ]
