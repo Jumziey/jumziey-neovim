@@ -53,4 +53,5 @@ with pkgs.vimPlugins; [
   nvim-treesitter-textobjects
   custom-hop-vim
   plantuml-previewer-vim
+  vimwiki
 ]
