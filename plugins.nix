@@ -51,4 +51,5 @@ with pkgs.vimPlugins; [
   nvim-treesitter-context
   nvim-treesitter-refactor
   nvim-treesitter-textobjects
+  custom-hop-vim
 ]

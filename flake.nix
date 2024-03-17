@@ -22,6 +22,9 @@
             material-vim = import ./packages/vimPlugins/material-vim.nix {
               pkgs = prev;
             };
+            custom-hop-vim = import ./packages/vimPlugins/hop-vim.nix {
+              pkgs = prev;
+            };
           };
         };
 
