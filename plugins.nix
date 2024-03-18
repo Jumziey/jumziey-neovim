@@ -57,4 +57,6 @@ with pkgs.vimPlugins; [
   vimwiki
   vim-airline
   vim-airline-themes
+  nvim-cmp
+  cmp-nvim-lsp
 ]
