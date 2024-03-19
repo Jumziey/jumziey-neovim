@@ -47,6 +47,7 @@ with pkgs.vimPlugins; [
       nix
       python
       helm
+      kotlin
     ]
   ))
   nvim-treesitter-context

@@ -38,4 +38,5 @@ require('lspconfig').yamlls.setup {
     },
   }
 }
+require'lspconfig'.kotlin_language_server.setup{}
 ''
