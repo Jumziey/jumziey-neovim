@@ -28,4 +28,14 @@ nvim_lsp.tsserver.setup({
     },
   },
 })
+
+require('lspconfig').yamlls.setup {
+  settings = {
+    yaml = {
+      schemas = {
+        ["kubernetes"] = "/*.yaml",
+      },
+    },
+  }
+}
 ''
