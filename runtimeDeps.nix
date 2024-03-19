@@ -8,6 +8,7 @@ with pkgs; [
   kotlin
   kotlin-language-server
   gradle
+  starlark-rust
   # packages with results in /lib/node_modules/.bin must come at the end
   nodePackages.typescript
   nodePackages.typescript-language-server
