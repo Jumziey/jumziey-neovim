@@ -29,17 +29,6 @@ nvim_lsp.tsserver.setup({
   },
 })
 
-require('lspconfig').yamlls.setup {
-  settings = {
-    yaml = {
-      schemas = {
-        ["https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/kustomization.json"] = "kustomization.yaml",
-        --"["kubernetes"] = "/*.yaml",
-      },
-    },
-  }
-}
-
 require'lspconfig'.kotlin_language_server.setup{}
 
 require'lspconfig'.starlark_rust.setup{}

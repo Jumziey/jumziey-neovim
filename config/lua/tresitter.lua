@@ -6,5 +6,5 @@ require'nvim-treesitter.configs'.setup {
 	indent = {
       enable = true
   },
-
 }
+vim.treesitter.language.register("yaml","kustomize")
