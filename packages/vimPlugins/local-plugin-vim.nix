@@ -1,5 +1,5 @@
 { pkgs }:
 pkgs.vimUtils.buildVimPlugin {
-    name = "local-plugin-vim";
+    name = "local-plugin";
     src = ../local-plugin ;
 }

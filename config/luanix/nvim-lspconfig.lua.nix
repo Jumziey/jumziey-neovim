@@ -33,7 +33,8 @@ require('lspconfig').yamlls.setup {
   settings = {
     yaml = {
       schemas = {
-        ["kubernetes"] = "/*.yaml",
+        ["https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/kustomization.json"] = "kustomization.yaml",
+        --"["kubernetes"] = "/*.yaml",
       },
     },
   }

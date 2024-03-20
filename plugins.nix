@@ -61,4 +61,5 @@ with pkgs.vimPlugins; [
   vim-airline-themes
   nvim-cmp
   cmp-nvim-lsp
+  local-plugin-vim
 ]
