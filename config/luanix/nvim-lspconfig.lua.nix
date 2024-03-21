@@ -16,7 +16,19 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<C-a>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
 end
 
+-- See: https://github.com/neovim/nvim-lspconfig/issues/2252
+-- Needs to earlier say helm
+vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
+  pattern = "*/templates/*.{yaml,yml},*/templates/*.tpl,*.gotmpl,helmfile*.{yaml,yml}",
+  callback = function()
+    vim.opt_local.filetype = 'helm'
+  end
+})
+
 require'lspconfig'.helm_ls.setup{
+  filetypes = {
+    "helm",
+  },
   on_attach = on_attach,
 }
 
