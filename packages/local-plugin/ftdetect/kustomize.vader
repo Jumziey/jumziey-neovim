@@ -1,0 +1,17 @@
+
+Execute (LinesContainKustomizeKindLine should match list with "kind: Kustomization" line): 
+  let lines = ['jibbersh', 'kind: Kustomization', 'more jibberish']
+  AssertEqual 1, LinesContainKustomizeKindLine(lines)
+
+Execute (LinesContainKustomizeKindLine should not match list without "kind: Kustomization" line): 
+  let lines = ['jibbersh', 'koko', 'more jibberish']
+  AssertEqual 0, LinesContainKustomizeKindLine(lines)
+
+Execute (LinesContainKustomizeKindLine should not match "kind: Kustomization" line with leading whitespace): 
+  let lines = ['jibbersh', ' kind: Kustomization', 'more jibberish']
+  AssertEqual 0, LinesContainKustomizeKindLine(lines)
+
+Execute (LinesContainKustomizeKindLine should match list with "kind: Kustomization" line that contains trailing whitespace): 
+  let lines = ['jibbersh', 'kind: Kustomization  ', 'more jibberish']
+  AssertEqual 1, LinesContainKustomizeKindLine(lines)
+

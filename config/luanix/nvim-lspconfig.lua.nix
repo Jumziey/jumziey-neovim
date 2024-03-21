@@ -42,6 +42,19 @@ nvim_lsp.tsserver.setup({
 })
 
 require'lspconfig'.kotlin_language_server.setup{}
+require('lspconfig').yamlls.setup {
+  filetypes = {
+    "kustomize"
+  },
+  settings = {
+    yaml = {
+      schemas = {
+        ["https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/kustomization.json"] = "/*.yaml",
+      },
+    },
+  }
+}
+
 
 require'lspconfig'.starlark_rust.setup{}
 ''
