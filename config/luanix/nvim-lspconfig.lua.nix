@@ -55,6 +55,13 @@ require('lspconfig').yamlls.setup {
   }
 }
 
+require('lspconfig').yamlls.setup {
+  on_attach = on_attach,
+  filetypes = {
+    "yaml"
+  },
+}
+
 
 require'lspconfig'.starlark_rust.setup{}
 ''
