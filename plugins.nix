@@ -62,4 +62,5 @@ with pkgs.vimPlugins; [
   nvim-cmp
   cmp-nvim-lsp
   local-plugin-vim
+  vader-vim
 ]
