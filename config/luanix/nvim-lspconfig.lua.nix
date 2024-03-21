@@ -41,7 +41,6 @@ nvim_lsp.tsserver.setup({
   },
 })
 
-require'lspconfig'.kotlin_language_server.setup{}
 require('lspconfig').yamlls.setup {
   filetypes = {
     "kustomize"
@@ -62,6 +61,12 @@ require('lspconfig').yamlls.setup {
   },
 }
 
+require'lspconfig'.kotlin_language_server.setup{
+  on_attach = on_attach,
+  filetypes = {
+    "kotlin",
+  },
+}
 
 require'lspconfig'.starlark_rust.setup{}
 ''
