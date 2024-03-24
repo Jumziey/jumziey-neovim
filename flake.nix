@@ -20,6 +20,7 @@
           vimPlugins = final.vimPlugins // import ./packages/vimPlugins { pkgs = prev; };
         };
 
+        runtimeDepsOverlay = import ./packages/runtimeDepsOverlay;
 
         overlayMyNeovim = prev: final: {
           myNeovim = import ./packages/myNeovim.nix {
@@ -29,7 +30,7 @@
 
         pkgs = import nixpkgs {
           system = system;
-          overlays = [ overlayFlakeInputs overlayMyNeovim ];
+          overlays = [ runtimeDepsOverlay overlayFlakeInputs overlayMyNeovim ];
         };
 
       in
