@@ -34,6 +34,7 @@ require'lspconfig'.helm_ls.setup{
 
 local nvim_lsp = require("lspconfig")
 nvim_lsp.tsserver.setup({
+  on_attach = on_attach,
   init_options = {
     tsserver = {
       path = "${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib",
@@ -42,6 +43,7 @@ nvim_lsp.tsserver.setup({
 })
 
 require('lspconfig').yamlls.setup {
+  on_attach = on_attach,
   filetypes = {
     "kustomize"
   },
@@ -68,5 +70,7 @@ require'lspconfig'.kotlin_language_server.setup{
   },
 }
 
-require'lspconfig'.starlark_rust.setup{}
+require'lspconfig'.starlark_rust.setup{
+  on_attach = on_attach,
+}
 ''
