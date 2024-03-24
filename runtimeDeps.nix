@@ -10,6 +10,7 @@ with pkgs; [
   gradle
   starlark-rust
   # packages with results in /lib/node_modules/.bin must come at the end
+  vimscript-language-server
   nodePackages.typescript
   nodePackages.typescript-language-server
 ]
