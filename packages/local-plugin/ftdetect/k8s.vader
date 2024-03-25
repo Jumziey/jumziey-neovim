@@ -1,0 +1,19 @@
+Execute(LinesAreFromK8sFile should return 0 if list is empty):
+  AssertEqual 0, LinesAreFromK8sFile([])
+
+Execute(LinesAreFromK8sFile should return 1 if kind, apiVersion: and metadata: keys: exists):
+  let lines = ["kind:", "apiVersion:", "metadata:"]
+  AssertEqual 1, LinesAreFromK8sFile(lines)
+
+Execute(LinesAreFromK8sFile should return 0 if kind is hit 3 times):
+  let lines = ["kind:", "kind:", "kind:"]
+  AssertEqual 0, LinesAreFromK8sFile(lines)
+
+Execute(LinesAreFromK8sFile should return 1 if kind, apiVersion: and metadata: keys: exists an extra time for each --- entry):
+  let lines = ["kind:", "apiVersion:", "metadata:", "kind:", "apiVersion:", "metadata:", "---"]
+  AssertEqual 1, LinesAreFromK8sFile(lines)
+
+Execute(LinesAreFromK8sFile should return 1 if kind, apiVersion: and metadata: keys: exists and are in the beginning of the line):
+  let lines = [" kind:", " apiVersion:", " metadata:"]
+  AssertEqual 0, LinesAreFromK8sFile(lines)
+

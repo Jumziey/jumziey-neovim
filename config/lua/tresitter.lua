@@ -8,3 +8,4 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 vim.treesitter.language.register("yaml","kustomize")
+vim.treesitter.language.register("yaml","kubernetes")

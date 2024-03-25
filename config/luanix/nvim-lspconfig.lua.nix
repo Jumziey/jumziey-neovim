@@ -63,6 +63,21 @@ require('lspconfig').yamlls.setup {
   },
 }
 
+require('lspconfig').yamlls.setup {
+  on_attach = on_attach,
+  -- https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.27.8/all.json
+  filetypes = {
+    "kubernetes"
+  },
+  settings = {
+    yaml = {
+      schemas = {
+        ["Kubernetes"] = "/*.yaml",
+      },
+    },
+  }
+}
+
 require'lspconfig'.kotlin_language_server.setup{
   on_attach = on_attach,
   filetypes = {
