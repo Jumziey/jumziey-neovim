@@ -43,41 +43,57 @@ nvim_lsp.tsserver.setup({
 })
 
 
-
-require('lspconfig').yamlls.setup {
-  on_attach = on_attach,
-  filetypes = {
-    "yaml"
-  },
-}
-
-require('lspconfig').yamlls.setup {
-  on_attach = on_attach,
-  filetypes = {
-    "kubernetes"
-  },
-  settings = {
-    yaml = {
-      schemas = {
-        ["Kubernetes"] = "/*.yaml",
+vim.api.nvim_create_autocmd({'FileType'}, {
+  pattern = "yaml",
+  callback = function()
+    require('lspconfig').yamlls.setup {
+      on_attach = on_attach,
+      filetypes = {
+        "yaml"
       },
-    },
-  }
-}
+    }
+  end
+})
 
-require('lspconfig').yamlls.setup {
-  on_attach = on_attach,
-  filetypes = {
-    "kustomize"
-  },
-  settings = {
-    yaml = {
-      schemas = {
-        ["https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/kustomization.json"] = "/*.yaml",
+vim.api.nvim_create_autocmd({'FileType'}, {
+  pattern = "kubernetes",
+  callback = function()
+    require('lspconfig').yamlls.setup {
+      on_attach = on_attach,
+      filetypes = {
+        "kubernetes"
       },
-    },
-  }
-}
+      settings = {
+        yaml = {
+          schemas = {
+            ["Kubernetes"] = "/*.yaml",
+          },
+        },
+      }
+    }
+  end
+})
+
+vim.api.nvim_create_autocmd({'FileType'}, {
+  pattern = "kustomize",
+  callback = function()
+    require('lspconfig').yamlls.setup {
+      on_attach = on_attach,
+      filetypes = {
+        "kustomize"
+      },
+      settings = {
+        yaml = {
+          schemas = {
+            ["https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/kustomization.json"] = "/*.yaml",
+          },
+        },
+      }
+    }
+  end
+})
+
+
 
 require'lspconfig'.kotlin_language_server.setup{
   on_attach = on_attach,
