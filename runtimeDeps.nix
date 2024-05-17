@@ -9,6 +9,7 @@ with pkgs; [
   kotlin-language-server
   gradle
   starlark-rust
+  terraform-ls
   # packages with results in /lib/node_modules/.bin must come at the end
   vimscript-language-server
   nodePackages.typescript
