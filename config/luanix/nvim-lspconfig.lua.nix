@@ -19,7 +19,7 @@ end
 -- See: https://github.com/neovim/nvim-lspconfig/issues/2252
 -- Needs to earlier say helm
 vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead'}, {
-  pattern = "*/templates/*.{yaml,yml},*/templates/*.tpl,*.gotmpl,helmfile*.{yaml,yml}",
+  pattern = "*/templates/*.{yaml,yml},*/templates/*.tpl,*.gotmpl,helmfile*.{yaml,yml},values.yaml",
   callback = function()
     vim.opt_local.filetype = 'helm'
   end
@@ -42,19 +42,7 @@ nvim_lsp.tsserver.setup({
   },
 })
 
-require('lspconfig').yamlls.setup {
-  on_attach = on_attach,
-  filetypes = {
-    "kustomize"
-  },
-  settings = {
-    yaml = {
-      schemas = {
-        ["https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/kustomization.json"] = "/*.yaml",
-      },
-    },
-  }
-}
+
 
 require('lspconfig').yamlls.setup {
   on_attach = on_attach,
@@ -65,7 +53,6 @@ require('lspconfig').yamlls.setup {
 
 require('lspconfig').yamlls.setup {
   on_attach = on_attach,
-  -- https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.27.8/all.json
   filetypes = {
     "kubernetes"
   },
@@ -73,6 +60,20 @@ require('lspconfig').yamlls.setup {
     yaml = {
       schemas = {
         ["Kubernetes"] = "/*.yaml",
+      },
+    },
+  }
+}
+
+require('lspconfig').yamlls.setup {
+  on_attach = on_attach,
+  filetypes = {
+    "kustomize"
+  },
+  settings = {
+    yaml = {
+      schemas = {
+        ["https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/kustomization.json"] = "/*.yaml",
       },
     },
   }
@@ -90,6 +91,10 @@ require'lspconfig'.starlark_rust.setup{
 }
 
 require'lspconfig'.vimls.setup{
+  on_attach = on_attach,
+}
+
+require'lspconfig'.terraformls.setup{
   on_attach = on_attach,
 }
 ''
