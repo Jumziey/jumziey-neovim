@@ -43,53 +43,62 @@ nvim_lsp.tsserver.setup({
 })
 
 
-vim.api.nvim_create_autocmd({'FileType'}, {
-  pattern = "yaml",
+vim.api.nvim_create_autocmd({'BufEnter'}, {
+  pattern = "*yaml,*yml",
   callback = function()
-    require('lspconfig').yamlls.setup {
-      on_attach = on_attach,
-      filetypes = {
-        "yaml"
-      },
-    }
+    if( vim.bo.filetype == "yaml")
+    then
+      require('lspconfig').yamlls.setup {
+        on_attach = on_attach,
+        filetypes = {
+          "yaml"
+        },
+      }
+    end
   end
 })
 
-vim.api.nvim_create_autocmd({'FileType'}, {
-  pattern = "kubernetes",
+vim.api.nvim_create_autocmd({'BufEnter'}, {
+  pattern = "*yaml,*yml",
   callback = function()
-    require('lspconfig').yamlls.setup {
-      on_attach = on_attach,
-      filetypes = {
-        "kubernetes"
-      },
-      settings = {
-        yaml = {
-          schemas = {
-            ["Kubernetes"] = "/*.yaml",
-          },
+    if( vim.bo.filetype == "kubernetes")
+    then
+      require('lspconfig').yamlls.setup {
+        on_attach = on_attach,
+        filetypes = {
+          "kubernetes"
         },
+        settings = {
+          yaml = {
+            schemas = {
+              ["Kubernetes"] = "/*.yaml",
+            },
+          },
+        }
       }
-    }
+    end
   end
 })
 
-vim.api.nvim_create_autocmd({'FileType'}, {
-  pattern = "kustomize",
+vim.api.nvim_create_autocmd({'BufEnter'}, {
+  pattern = "*yaml,*yml",
   callback = function()
-    require('lspconfig').yamlls.setup {
-      on_attach = on_attach,
-      filetypes = {
-        "kustomize"
-      },
-      settings = {
-        yaml = {
-          schemas = {
-            ["https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/kustomization.json"] = "/*.yaml",
-          },
+    if( vim.bo.filetype == "kustomize")
+    then
+      require('lspconfig').yamlls.setup {
+        on_attach = on_attach,
+        filetypes = {
+          "kustomize"
         },
+        settings = {
+          yaml = {
+            schemas = {
+              ["https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/kustomization.json"] = "/*.yaml",
+            },
+          },
+        }
       }
-    }
+    end
   end
 })
 
