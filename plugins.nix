@@ -26,6 +26,7 @@ with pkgs.vimPlugins; [
       gomod
       gosum
       gowork
+      hcl
       java
       javascript
       typescript
@@ -63,4 +64,6 @@ with pkgs.vimPlugins; [
   cmp-nvim-lsp
   local-plugin-vim
   vader-vim
+  nvim-jdtls
+  vim-projectionist
 ]

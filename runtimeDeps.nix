@@ -10,6 +10,7 @@ with pkgs; [
   gradle
   starlark-rust
   terraform-ls
+  jdt-language-server
   # packages with results in /lib/node_modules/.bin must come at the end
   vimscript-language-server
   nodePackages.typescript

@@ -26,12 +26,12 @@ local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
 local settings = {
 		java = {
-				format = {
-						settings = {
-								url = '/home/jumzi/code/eclipse-format.xml',
-						},
-				},
-				completion = { importOrder = {} },
+--				format = {
+--						settings = {
+--								url = '/home/jumzi/code/eclipse-format.xml',
+--						},
+--				},
+        completion = { importOrder = {} },
 				references = { includeDecompiledSources = false },
 				saveActions = { organizeImports = true },
 		},
@@ -39,7 +39,7 @@ local settings = {
 
 require('jdtls').start_or_attach{
   cmd = {
-    'jdt-language-server',
+    'jdtls',
     '-data', '/home/jumzi/.cache/jdt-language-server/' .. workspace_dir,
   },
 	on_attach = on_attach,

@@ -14,7 +14,7 @@ let
         src = ./${dir};
         installPhase = ''
           mkdir -p $out/
-          cp ./* $out/
+          cp -r ./* $out/
         '';
       };
     in builtins.map (file: "${configDir}/${file}")
